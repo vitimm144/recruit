@@ -40,4 +40,5 @@ class Contratante(Usuario):
     cargo = models.CharField(max_length=255)
 
 
-# class Recrutador(Usuario):
+class Recrutador(Usuario):
+    pass
