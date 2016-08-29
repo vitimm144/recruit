@@ -47,8 +47,18 @@ class Recrutador(Usuario):
     tipo_recrutador = models.CharField(choices=TIPOS_DE_RECRUTADORES, default='RE', max_length=2)
     skype = models.CharField(max_length=255, verbose_name='Skype')
     telefone = models.CharField(max_length=255, verbose_name='Telefone', null=True)
+    area_atuacao = models.ForeignKey(
+        'core.AreaAtuacao',
+        verbose_name='Área de Atuação',
+        null=True
+    )
 
 
 class Candidato(Usuario):
     curriculo = models.FileField(verbose_name='Currículo')
     analise_recrutador = models.TextField(verbose_name='Análise Recrutador')
+    area_atuacao = models.ForeignKey(
+        'core.AreaAtuacao',
+        verbose_name='Área de Atuação',
+        null=True
+    )
