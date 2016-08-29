@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser
 
 
 TIPOS_DE_USUARIOS=(
-    ('SE', 'Recrutador Senior'),
-    ('MA', 'Recrutador Master'),
     ('RE', 'Recrutador'),
     ('CA', 'Candidato'),
     ('CO', 'Contratante'),
@@ -19,7 +17,6 @@ class Usuario(AbstractBaseUser):
     nome = models.CharField(max_length=150, verbose_name='Nome')
     email = models.EmailField()
     celular = models.CharField(max_length=30, verbose_name='Celular')
-    skype = models.CharField(max_length=255, verbose_name='Skype')
     linkedin = models.CharField(max_length=255, verbose_name='LinkedIN')
 
     def __str__(self):
@@ -30,6 +27,7 @@ class Usuario(AbstractBaseUser):
 
 
 class Contratante(Usuario):
+    skype = models.CharField(max_length=255, verbose_name='Skype')
     email_profissional = models.EmailField(null=True, verbose_name='Email Profissional')
     telefone_empresarial = models.CharField(
         max_length=255,
@@ -41,4 +39,16 @@ class Contratante(Usuario):
 
 
 class Recrutador(Usuario):
-    pass
+    TIPOS_DE_RECRUTADORES = (
+        ('SE', 'Recrutador Senior'),
+        ('MA', 'Recrutador Master'),
+        ('RE', 'Recrutador'),
+    )
+    tipo_recrutador = models.CharField(choices=TIPOS_DE_RECRUTADORES, default='RE', max_length=2)
+    skype = models.CharField(max_length=255, verbose_name='Skype')
+    telefone = models.CharField(max_length=255, verbose_name='Telefone', null=True)
+
+
+class Candidato(Usuario):
+    curriculo = models.FileField(verbose_name='Currículo')
+    analise_recrutador = models.TextField(verbose_name='Análise Recrutador')
