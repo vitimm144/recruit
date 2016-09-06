@@ -2,28 +2,15 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
 
-TIPOS_DE_USUARIOS=(
-    ('RE', 'Recrutador'),
-    ('CA', 'Candidato'),
-    ('CO', 'Contratante'),
-)
-
-
 class Usuario(AbstractBaseUser):
-    tipo = models.CharField(
-        max_length=2,
-        choices=TIPOS_DE_USUARIOS
-    )
     nome = models.CharField(max_length=150, verbose_name='Nome')
-    email = models.EmailField()
+    email = models.EmailField(unique=True, verbose_name='Email')
     celular = models.CharField(max_length=30, verbose_name='Celular')
     linkedin = models.CharField(max_length=255, verbose_name='LinkedIN')
+    USERNAME_FIELD = 'email'
 
     def __str__(self):
         return self.nome
-
-    class Meta:
-        abstract = True
 
 
 class Contratante(Usuario):
@@ -40,7 +27,6 @@ class Contratante(Usuario):
 
 class Recrutador(Usuario):
     TIPOS_DE_RECRUTADORES = (
-        ('SE', 'Recrutador Senior'),
         ('MA', 'Recrutador Master'),
         ('RE', 'Recrutador'),
     )

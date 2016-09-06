@@ -2,6 +2,13 @@ from django.db import models
 
 
 class Vaga(models.Model):
+    STATUS = (
+        ('EA', 'Em aberto'),
+        ('AN', 'Em análise'),
+        ('AC', 'Aceito'),
+        ('RE', 'Recusado'),
+    )
+
     titulo = models.CharField(
         max_length=255,
         verbose_name='Título da vaga'
@@ -28,6 +35,17 @@ class Vaga(models.Model):
     area_atuacao = models.ForeignKey(
         'core.AreaAtuacao',
         verbose_name='Área de Atuação'
+    )
+    valor = models.CharField(
+        max_length=255,
+        verbose_name='Valor',
+        null=True
+    )
+    status = models.CharField(
+        max_length=2,
+        choices=STATUS,
+        verbose_name='Status',
+        default='EA'
     )
 
     def __str__(self):
