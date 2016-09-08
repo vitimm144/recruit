@@ -21,7 +21,7 @@ class Contratante(Usuario):
         null=True,
         verbose_name='Telefone Empresarial'
     )
-    empresa = models.ForeignKey('core.Empresa')
+    empresa = models.ForeignKey('core.Empresa', null=True)
     cargo = models.CharField(max_length=255)
 
 
