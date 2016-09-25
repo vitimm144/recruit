@@ -34,10 +34,10 @@ urlpatterns = [
     url(r'^candidatos/$', contas_views.CandidatoListView.as_view(), name='candidato_list'),
     url(r'^candidato/(?P<pk>[0-9]+)/delete/$', contas_views.CandidatoDelete.as_view(), name='candidato_delete'),
     # Views de recrutador
-    url(r'^recrutador/new/$', contas_views.RecrutadorCreate.as_view(), name='candidato_new'),
-    url(r'^recrutador/(?P<pk>[0-9]+)/$', contas_views.RecrutadorUpdate.as_view(), name='candidato_edit'),
-    url(r'^recrutadors/$', contas_views.RecrutadorListView.as_view(), name='candidato_list'),
-    url(r'^recrutador/(?P<pk>[0-9]+)/delete/$', contas_views.RecrutadorDelete.as_view(), name='candidato_delete'),
+    url(r'^recrutador/new/$', contas_views.RecrutadorCreate.as_view(), name='recrutador_new'),
+    url(r'^recrutador/(?P<pk>[0-9]+)/$', contas_views.RecrutadorUpdate.as_view(), name='recrutador_edit'),
+    url(r'^recrutadores/$', contas_views.RecrutadorListView.as_view(), name='recrutador_list'),
+    url(r'^recrutador/(?P<pk>[0-9]+)/delete/$', contas_views.RecrutadorDelete.as_view(), name='recrutador_delete'),
     # Views de empresa
     url(r'^empresa/new/$', core_views.EmpresaCreate.as_view(), name='empresa_new'),
     url(r'^empresa/(?P<pk>[0-9]+)/$', core_views.EmpresaUpdate.as_view(), name='empresa_edit'),

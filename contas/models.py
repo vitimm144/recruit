@@ -61,3 +61,9 @@ class Candidato(Usuario):
         verbose_name='Área de Atuação',
         null=True
     )
+
+    def get_absolute_url(self):
+        return reverse('candidato_edit', kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse('candidato_delete', kwargs={'pk': self.pk})

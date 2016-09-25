@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Candidatos</h1>
+
+
+<table class="table">
+    <thead>
+        <th> Nome </th>
+        <th> Email </th>
+        <th> Celular </th>
+        <th> LinkedIN </th>
+        <th> Editar </th>
+        <th> Deletar </th>
+    </thead>
+    <tbody>
+    {% for candidato in object_list %}
+    <tr>
+        <td><span>{{ candidato.nome }}</span></td>
+        <td><span>{{ candidato.email}}</span></td>
+        <td><span>{{ candidato.celular}}</span></td>
+        <td><span>{{ candidato.linkedin}}</span></td>
+        <td><a href="{{ candidato.get_absolute_url }}" >Editar</a></td>
+        <td><a href="{{ candidato.get_delete_url }}" >Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}
