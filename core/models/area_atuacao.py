@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class AreaAtuacao(models.Model):
@@ -14,3 +15,9 @@ class AreaAtuacao(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return reverse('area_atuacao_edit', kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse('area_atuacao_delete', kwargs={'pk': self.pk})

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Áreas de Atuações</h1>
+
+
+<table class="table">
+    <thead>
+        <th> Nome </th>
+        <th> Código </th>
+        <th> Editar </th>
+        <th> Deletar </th>
+    </thead>
+    <tbody>
+    {% for area_atuacao in object_list %}
+    <tr>
+        <td><span>{{ area_atuacao.nome}}</span></td>
+        <td><span>{{ area_atuacao.codigo}}</span></td>
+        <td><a href="{{ area_atuacao.get_absolute_url }}" >Editar</a></td>
+        <td><a href="{{ area_atuacao.get_delete_url }}" >Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}
