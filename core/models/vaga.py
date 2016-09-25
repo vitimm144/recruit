@@ -18,14 +18,13 @@ class Vaga(models.Model):
         verbose_name='Resumo da vaga'
     )
     localidade = models.TextField(
-        verbose_name='Resumo da vaga'
+        verbose_name='Localidade'
     )
     salario = models.CharField(
         max_length=255,
         verbose_name='Salário'
     )
-    beneficios = models.CharField(
-        max_length=255,
+    beneficios = models.TextField(
         verbose_name='Benefícios',
         null=True
     )
