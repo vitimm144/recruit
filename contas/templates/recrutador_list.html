@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Recrutadores</h1>
+
+
+<table class="table">
+    <thead>
+        <th> Nome </th>
+        <th> email </th>
+        <th> Telefone </th>
+        <th> Celular </th>
+        <th> Tipo </th>
+        <th> Área de Atuação </th>
+        <th> Editar </th>
+        <th> Deletar </th>
+    </thead>
+    <tbody>
+    {% for recrutador in object_list %}
+    <tr>
+        <td><span>{{ recrutador.nome }}</span></td>
+        <td><span>{{ recrutador.email}}</span></td>
+        <td><span>{{ recrutador.telefone}}</span></td>
+        <td><span>{{ recrutador.celular}}</span></td>
+        <td><span>{{ recrutador.tipo_recrutador}}</span></td>
+        <td><span>{{ recrutador.area_atuacao}}</span></td>
+        <td><a href="{{ recrutador.get_absolute_url }}" >Editar</a></td>
+        <td><a href="{{ recrutador.get_delete_url }}" >Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}

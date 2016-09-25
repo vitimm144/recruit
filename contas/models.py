@@ -46,6 +46,12 @@ class Recrutador(Usuario):
         null=True
     )
 
+    def get_absolute_url(self):
+        return reverse('recrutador_edit', kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse('recrutador_delete', kwargs={'pk': self.pk})
+
 
 class Candidato(Usuario):
     curriculo = models.FileField(verbose_name='Currículo')

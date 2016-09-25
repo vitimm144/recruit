@@ -24,7 +24,17 @@ class ContratanteForm(ModelForm):
 class RecrutadorForm(ModelForm):
     class Meta:
         model = Recrutador
-        fields = '__all__'
+        fields = [
+            'nome',
+            'password',
+            'email',
+            'tipo_recrutador',
+            'celular',
+            'telefone',
+            'skype',
+            'linkedin',
+            'area_atuacao'
+        ]
 
 
 class CandidatoForm(ModelForm):
