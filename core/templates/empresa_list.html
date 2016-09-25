@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Atendimento</h1>
+
+
+<table class="table">
+    <thead>
+        <th> Nome fantazia </th>
+        <th> CNPJ</th>
+        <th> Telefone </th>
+        <th> Editar </th>
+        <th> Deletar </th>
+    </thead>
+    <tbody>
+    {% for empresa in object_list %}
+    <tr>
+        <td><span>{{ empresa.nome }}</span></td>
+        <td><span>{{ empresa.cnpj}}</span></td>
+        <td><span>{{ empresa.telefone}}</span></td>
+        <td><a href="{{ empresa.get_absolute_url }}" >Editar</a></td>
+        <td><a href="{{ empresa.get_delete_url }}" >Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}

@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from core.models import Empresa
 from core.models import Vaga
+from core.models import AreaAtuacao
 
 
 class EmpresaForm(ModelForm):
@@ -12,4 +13,10 @@ class EmpresaForm(ModelForm):
 class VagaForm(ModelForm):
     class Meta:
         model = Vaga
+        fields = '__all__'
+
+
+class AreaAtuacaoForm(ModelForm):
+    class Meta:
+        model = AreaAtuacao
         fields = '__all__'

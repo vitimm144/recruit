@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class Vaga(models.Model):
@@ -50,3 +51,9 @@ class Vaga(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    def get_absolute_url(self):
+        return reverse('vaga_edit', kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse('vaga_delete', kwargs={'pk': self.pk})

@@ -2,7 +2,7 @@
 {% block content %}
 <div id="wrap">
 	<div><h1>Cadastro de Empresa</h1></div>
-	<form class="cad_contratante" action="." method="post">
+	<form class="cadastro" action="." method="post">
         {% csrf_token %}
         {{ form.as_p }}
 

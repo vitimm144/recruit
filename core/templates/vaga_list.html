@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Atendimento</h1>
+
+
+<table class="table">
+    <thead>
+        <th> Título </th>
+        <th> Salário </th>
+        <th> status</th>
+        <th> Editar </th>
+        <th> Deletar </th>
+    </thead>
+    <tbody>
+    {% for vaga in object_list %}
+    <tr>
+        <td><span>{{ vaga.titulo }}</span></td>
+        <td><span>{{ vaga.salario}}</span></td>
+        <td><span>{{ vaga.status}}</span></td>
+        <td><a href="{{ vaga.get_absolute_url }}" >Editar</a></td>
+        <td><a href="{{ vaga.get_delete_url }}" >Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}
