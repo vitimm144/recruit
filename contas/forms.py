@@ -7,7 +7,18 @@ from contas.models import Candidato
 class ContratanteForm(ModelForm):
     class Meta:
         model = Contratante
-        fields = '__all__'
+        fields = [
+            'nome',
+            'password',
+            'email',
+            'email_profissional',
+            'celular',
+            'telefone_empresarial',
+            'skype',
+            'linkedin',
+            'empresa',
+            'cargo'
+        ]
 
 
 class RecrutadorForm(ModelForm):

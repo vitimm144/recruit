@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Contratantes</h1>
+
+
+<table class="table">
+    <thead>
+        <th> Nome </th>
+        <th> email </th>
+        <th> Telefone </th>
+        <th> Celular </th>
+        <th> Empresa </th>
+        <th> Editar </th>
+        <th> Deletar </th>
+    </thead>
+    <tbody>
+    {% for contratante in object_list %}
+    <tr>
+        <td><span>{{ contratante.nome }}</span></td>
+        <td><span>{{ contratante.email}}</span></td>
+        <td><span>{{ contratante.telefone_empresarial}}</span></td>
+        <td><span>{{ contratante.celular}}</span></td>
+        <td><span>{{ contratante.empresa}}</span></td>
+        <td><a href="{{ contratante.get_absolute_url }}" >Editar</a></td>
+        <td><a href="{{ contratante.get_delete_url }}" >Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}

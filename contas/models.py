@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
+from django.core.urlresolvers import reverse
 
 
 class Usuario(AbstractBaseUser):
@@ -23,6 +24,12 @@ class Contratante(Usuario):
     )
     empresa = models.ForeignKey('core.Empresa', null=True)
     cargo = models.CharField(max_length=255)
+
+    def get_absolute_url(self):
+        return reverse('contratante_edit', kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse('contratante_delete', kwargs={'pk': self.pk})
 
 
 class Recrutador(Usuario):
